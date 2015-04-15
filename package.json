@@ -1,0 +1,29 @@
+{
+  "name": "le-todo",
+  "version": "0.1.0",
+  "description": "A simple cli todo tool.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mopolo/node-todo.git"
+  },
+  "author": "Nathan Boiron <nathan.boiron@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Mopolo/node-todo",
+  "bugs": {
+    "url": "https://github.com/Mopolo/node-todo/issues"
+  },
+  "bin": {
+    "todo": "index.js"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "colors": "^1.0.3",
+    "commander": "^2.7.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^4.0.0",
+    "gulp-util": "^3.0.4"
+  }
+}
