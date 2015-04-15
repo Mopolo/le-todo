@@ -25,7 +25,7 @@ class TodoManager {
         }
     }
 
-    list() {
+    list(includeDate) {
         var self = this;
         var todos = self.getAllTodos();
         var todo = {};
@@ -41,10 +41,29 @@ class TodoManager {
             todo = require(path.join(self.todoDir, file));
 
             var id = file.replace('.json', '');
-
             var done = todo.done ? '•'.green : 'x'.red;
+            var date = '';
 
-            console.log('[' + done + '][' + id.blue + '] ' + todo.text);
+            if (includeDate) {
+                var d = new Date(todo.created_at);
+                date = {
+                    year: d.getFullYear(),
+                    month: d.getMonth() + 1,
+                    day: d.getDate()
+                };
+
+                if (date.month < 10) {
+                    date.month = '0' + date.month;
+                }
+
+                if (date.day < 10) {
+                    date.day = '0' + date.day;
+                }
+
+                date = '[' + date.year + '-' + date.month + '-' + date.day + ']';
+            }
+
+            console.log('[' + done + '][' + id.blue + ']' + date + ' ' + todo.text);
         });
 
         console.log();

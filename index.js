@@ -9,6 +9,9 @@ program
     .version(pkg.version);
 
 program
+    .option('-d --date', 'Display the created_at date when listing todos');
+
+program
     .command('do [id]')
     .description('Mark a todo as done')
     .action(function(id) {
@@ -43,12 +46,12 @@ program.on('--help', function(){
 program
     .parse(process.argv);
 
-if (process.argv.length >= 3) {
+if (process.argv.length >= 3 && !program.date) {
     TodoManager.add();
     process.exit();
 }
 
 console.log('Help: todo -h');
-TodoManager.list();
+TodoManager.list(program.date);
 
 process.exit();
