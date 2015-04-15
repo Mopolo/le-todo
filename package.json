@@ -1,5 +1,5 @@
 {
-  "name": "todo",
+  "name": "le-todo",
   "version": "0.1.0",
   "description": "A simple cli todo tool.",
   "main": "index.js",
